@@ -4,13 +4,13 @@ import { LectureInterface } from "../interface/lecture.interface";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+import Button from "react-bootstrap/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
 
 const token = localStorage.getItem("jwt");
-const Lectures = () => {
+const Lecture = () => {
   const [lectures, setLectures] = useState([]);
   const getData = async () => {
     try {
@@ -27,7 +27,7 @@ const Lectures = () => {
   };
   const navigate = useNavigate();
   const AddLecture = () => {
-    navigate("/lectures/addLecture");
+    navigate("/lecture/addlecture");
   };
 
   const handleDelete = async (e: any, id: string) => {
@@ -58,6 +58,11 @@ const Lectures = () => {
   const handleEdit = (e: any, id: string) => {
     navigate(`/lectures/${id}`);
   };
+  const LogoutHandle = (e: any) => {
+    navigate(`/`);
+   }
+
+ 
   useEffect(() => {
     getData();
   }, []);
@@ -67,8 +72,11 @@ const Lectures = () => {
       <div>
         <h4>Lectures</h4>
         <div>
-          <Button variant="outlined" onClick={AddLecture}>
+          <Button variant="success" onClick={AddLecture}>
             Add
+          </Button>
+          <Button variant="info" onClick={LogoutHandle} style={{float:'right'}}>
+            Logout 
           </Button>
           <div>
             <Grid
@@ -103,7 +111,7 @@ const Lectures = () => {
                           </CardContent>
                           <CardActions>
                             <Button
-                              variant="contained"
+                              variant="danger"
                               color="success"
                               onClick={(e: any) =>
                                 handleDelete(e, lectures._id)
@@ -112,7 +120,7 @@ const Lectures = () => {
                               Delete
                             </Button>
                             <Button
-                              variant="contained"
+                              variant="warning"
                               color="error"
                               onClick={(e: any) => handleEdit(e, lectures._id)}
                             >
@@ -133,4 +141,4 @@ const Lectures = () => {
   );
 };
 
-export default Lectures;
+export default Lecture;

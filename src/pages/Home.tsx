@@ -9,10 +9,13 @@ function Home() {
 
   const signinhandle=(e: any) => {
     e.preventDefault;
-    navigate('/signin')
-
-    
+    navigate('/signin')    
   }
+  
+  const signuphandle = (e: any) => {
+    e.preventDefault;
+    navigate("/signup");
+  };
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
@@ -25,13 +28,21 @@ function Home() {
           </Nav>
         </Container>
       </Navbar>
-      <div className="container" style={{marginTop:'220px'}}>
-        <h3 style={{ textAlign: "center"}}>
+      <div className="container" style={{ marginTop: "220px" }}>
+        <h3 style={{ textAlign: "center" }}>
           Welcome To Our Lecture Management App...
         </h3>
-        <br/>
-        <Button variant='success' style={{marginLeft:'430px',marginRight:'70px'}} onClick={signinhandle}>Sign In</Button>
-        <Button variant='warning'>Sign Up</Button>
+        <br />
+        <Button
+          variant="success"
+          style={{ marginLeft: "430px", marginRight: "70px" }}
+          onClick={signinhandle}
+        >
+          Sign In
+        </Button>
+        <Button variant="warning" onClick={signuphandle}>
+          Sign Up
+        </Button>
       </div>
     </>
   );
