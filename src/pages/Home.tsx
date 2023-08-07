@@ -1,9 +1,18 @@
+import {useNavigate} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from "react-bootstrap/Button";
 
 function Home() {
+  const navigate = useNavigate();
+
+  const signinhandle=(e: any) => {
+    e.preventDefault;
+    navigate('/signin')
+
+    
+  }
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
@@ -21,7 +30,7 @@ function Home() {
           Welcome To Our Lecture Management App...
         </h3>
         <br/>
-        <Button variant='success' style={{marginLeft:'430px',marginRight:'70px'}}>Sign In</Button>
+        <Button variant='success' style={{marginLeft:'430px',marginRight:'70px'}} onClick={signinhandle}>Sign In</Button>
         <Button variant='warning'>Sign Up</Button>
       </div>
     </>
