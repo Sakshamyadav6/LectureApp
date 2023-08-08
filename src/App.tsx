@@ -6,7 +6,8 @@ import Signin from './pages/Signin'
 import Signup from './pages/Signup'
 import Lecture from './pages/Lecture'
 import AddLecture from './pages/AddLecture';
-function App() {
+import EditLecture from './pages/EditLecture'
+ function App() {
  
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
         <Route path='/signup' element={<Signup/>} />
         <Route path='/lecture' element={<Lecture/>} />
         <Route path='/lecture/addlecture' element={<AddLecture/>} />
+        <Route path='/lecture/:id' element={<EditLecture/>} />
         
        </Routes>
     </>

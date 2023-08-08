@@ -56,7 +56,7 @@ const Lecture = () => {
   };
 
   const handleEdit = (e: any, id: string) => {
-    navigate(`/lectures/${id}`);
+    navigate(`/lecture/${id}`);
   };
   const LogoutHandle = (e: any) => {
     navigate(`/`);
