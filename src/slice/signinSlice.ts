@@ -8,6 +8,7 @@ const signinSlice = createSlice({
     },
     reducers: {
         signin: (state) => {
+            state.isLoggedin
             
         }
         

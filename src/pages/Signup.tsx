@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -13,11 +13,14 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8085/users/register", {
-        username,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:8085/users/register",
+        {
+          username,
+          email,
+          password,
+        }
+      );
       if (response.data.status) {
         navigate("/lecture");
       }

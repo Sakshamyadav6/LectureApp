@@ -56,13 +56,15 @@ const Lecture = () => {
   };
 
   const handleEdit = (e: any, id: string) => {
+    e.preventDefault();
+
     navigate(`/lecture/${id}`);
   };
   const LogoutHandle = (e: any) => {
+    e.preventDefault();
     navigate(`/`);
-   }
+  };
 
- 
   useEffect(() => {
     getData();
   }, []);
@@ -75,8 +77,12 @@ const Lecture = () => {
           <Button variant="success" onClick={AddLecture}>
             Add
           </Button>
-          <Button variant="info" onClick={LogoutHandle} style={{float:'right'}}>
-            Logout 
+          <Button
+            variant="info"
+            onClick={LogoutHandle}
+            style={{ float: "right" }}
+          >
+            Logout
           </Button>
           <div>
             <Grid
